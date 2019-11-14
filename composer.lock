@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9667500ae5e37613b0a378022f2ee4c8",
+    "content-hash": "a19a0a706b906dd099946f868f482cd7",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -1652,6 +1652,52 @@
             "time": "2019-10-15T18:30:14+00:00"
         },
         {
+            "name": "laravelista/lumen-vendor-publish",
+            "version": "6.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravelista/lumen-vendor-publish.git",
+                "reference": "c12b1e9039a4c84f1db3fb5f8436c279f8774508"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravelista/lumen-vendor-publish/zipball/c12b1e9039a4c84f1db3fb5f8436c279f8774508",
+                "reference": "c12b1e9039a4c84f1db3fb5f8436c279f8774508",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^6.0",
+                "illuminate/filesystem": "^6.0",
+                "illuminate/support": "^6.0",
+                "league/flysystem": "^1.0.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Laravelista\\LumenVendorPublish\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mario Bašić",
+                    "email": "mario@laravelista.hr"
+                }
+            ],
+            "description": "vendor:publish for Lumen framework.",
+            "keywords": [
+                "command",
+                "console",
+                "lumen",
+                "publish",
+                "vendor"
+            ],
+            "time": "2019-10-11T12:56:34+00:00"
+        },
+        {
             "name": "lcobucci/jwt",
             "version": "3.3.1",
             "source": {
@@ -1707,17 +1753,101 @@
             "time": "2019-05-24T18:30:49+00:00"
         },
         {
-            "name": "monolog/monolog",
-            "version": "2.0.0",
+            "name": "league/flysystem",
+            "version": "1.0.57",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "68545165e19249013afd1d6f7485aecff07a2d22"
+                "url": "https://github.com/thephpleague/flysystem.git",
+                "reference": "0e9db7f0b96b9f12dcf6f65bc34b72b1a30ea55a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/68545165e19249013afd1d6f7485aecff07a2d22",
-                "reference": "68545165e19249013afd1d6f7485aecff07a2d22",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/0e9db7f0b96b9f12dcf6f65bc34b72b1a30ea55a",
+                "reference": "0e9db7f0b96b9f12dcf6f65bc34b72b1a30ea55a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "php": ">=5.5.9"
+            },
+            "conflict": {
+                "league/flysystem-sftp": "<1.0.6"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "^3.4",
+                "phpunit/phpunit": "^5.7.10"
+            },
+            "suggest": {
+                "ext-fileinfo": "Required for MimeType",
+                "ext-ftp": "Allows you to use FTP server storage",
+                "ext-openssl": "Allows you to use FTPS server storage",
+                "league/flysystem-aws-s3-v2": "Allows you to use S3 storage with AWS SDK v2",
+                "league/flysystem-aws-s3-v3": "Allows you to use S3 storage with AWS SDK v3",
+                "league/flysystem-azure": "Allows you to use Windows Azure Blob storage",
+                "league/flysystem-cached-adapter": "Flysystem adapter decorator for metadata caching",
+                "league/flysystem-eventable-filesystem": "Allows you to use EventableFilesystem",
+                "league/flysystem-rackspace": "Allows you to use Rackspace Cloud Files",
+                "league/flysystem-sftp": "Allows you to use SFTP server storage via phpseclib",
+                "league/flysystem-webdav": "Allows you to use WebDAV storage",
+                "league/flysystem-ziparchive": "Allows you to use ZipArchive adapter",
+                "spatie/flysystem-dropbox": "Allows you to use Dropbox storage",
+                "srmklive/flysystem-dropbox-v2": "Allows you to use Dropbox storage for PHP 5 applications"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Flysystem\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frank de Jonge",
+                    "email": "info@frenky.net"
+                }
+            ],
+            "description": "Filesystem abstraction: Many filesystems, one API.",
+            "keywords": [
+                "Cloud Files",
+                "WebDAV",
+                "abstraction",
+                "aws",
+                "cloud",
+                "copy.com",
+                "dropbox",
+                "file systems",
+                "files",
+                "filesystem",
+                "filesystems",
+                "ftp",
+                "rackspace",
+                "remote",
+                "s3",
+                "sftp",
+                "storage"
+            ],
+            "time": "2019-10-16T21:01:05+00:00"
+        },
+        {
+            "name": "monolog/monolog",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Seldaek/monolog.git",
+                "reference": "f9d56fd2f5533322caccdfcddbb56aedd622ef1c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/f9d56fd2f5533322caccdfcddbb56aedd622ef1c",
+                "reference": "f9d56fd2f5533322caccdfcddbb56aedd622ef1c",
                 "shasum": ""
             },
             "require": {
@@ -1785,7 +1915,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2019-08-30T09:56:44+00:00"
+            "time": "2019-11-13T10:27:43+00:00"
         },
         {
             "name": "namshi/jose",
@@ -2073,6 +2203,114 @@
                 "type"
             ],
             "time": "2019-11-06T22:27:00+00:00"
+        },
+        {
+            "name": "prettus/l5-repository",
+            "version": "2.6.36",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/andersao/l5-repository.git",
+                "reference": "c4f56cffbd23d61e16d2a8a9df0c651037313b54"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/andersao/l5-repository/zipball/c4f56cffbd23d61e16d2a8a9df0c651037313b54",
+                "reference": "c4f56cffbd23d61e16d2a8a9df0c651037313b54",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "~5.0|~6.0",
+                "illuminate/console": "~5.0|~6.0",
+                "illuminate/database": "~5.0|~6.0",
+                "illuminate/filesystem": "~5.0|~6.0",
+                "illuminate/http": "~5.0|~6.0",
+                "illuminate/pagination": "~5.0|~6.0",
+                "illuminate/support": "~5.0|~6.0",
+                "prettus/laravel-validation": "~1.1|~1.2"
+            },
+            "suggest": {
+                "league/fractal": "Required to use the Fractal Presenter (0.12.*).",
+                "prettus/laravel-validation": "Required to provide easy validation with the repository (1.1.*)",
+                "robclancy/presenter": "Required to use the Presenter Model (1.3.*)"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Prettus\\Repository\\Providers\\RepositoryServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Prettus\\Repository\\": "src/Prettus/Repository/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anderson Andrade",
+                    "email": "contato@andersonandra.de",
+                    "homepage": "http://andersonandra.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel 5 - Repositories to  the database layer",
+            "homepage": "http://andersao.github.io/l5-repository",
+            "keywords": [
+                "cache",
+                "eloquent",
+                "laravel",
+                "model",
+                "repository"
+            ],
+            "time": "2019-09-11T14:09:40+00:00"
+        },
+        {
+            "name": "prettus/laravel-validation",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/andersao/laravel-validator.git",
+                "reference": "5ffa053baae31d11fa34da013b940d85c99ba253"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/andersao/laravel-validator/zipball/5ffa053baae31d11fa34da013b940d85c99ba253",
+                "reference": "5ffa053baae31d11fa34da013b940d85c99ba253",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.4|^6.0",
+                "illuminate/validation": "~5.4|^6.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Prettus\\Validator\\": "src/Prettus/Validator/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Anderson Andrade",
+                    "email": "contato@andersonandra.de",
+                    "homepage": "http://andersonandra.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel Validation Service",
+            "homepage": "http://andersao.github.io/laravel-validation",
+            "keywords": [
+                "laravel",
+                "service",
+                "validation"
+            ],
+            "time": "2019-09-11T12:19:42+00:00"
         },
         {
             "name": "psr/container",

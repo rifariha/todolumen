@@ -17,6 +17,9 @@ $router->get('/', function () use ($router) {
 
 $router->get('/userRepo', 'UserController@userRepo');
 
+$router->post('/PostUser', 'UserController@store');
+
+
 
 // API route group
 $router->group(['middleware' => 'auth', 'prefix' => 'api'], function () use ($router) {

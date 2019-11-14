@@ -3,64 +3,46 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
-use App\User;
-use App\Repositories\user\UserRepository;
+use App\Repositories\UserRepository as Users;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    protected $user;
      /**
      * Instantiate a new UserController instance.
      *
      * @return void
      */
 
-    public function __construct(UserRepository $user)
+    public function __construct(
+        Users $user
+    )
     {
         $this->user = $user;
     }
 
+    /**
+     * Get All users.
+     *
+     * @return Response
+     */
+
     public function userRepo()
     {
-        return response()->json($this->user->getAll(), 200);
+        return response()->json($this->user->all(), 200);
     }
 
     /**
-     * Get the authenticated User.
+     * Store User.
      *
      * @return Response
      */
-    public function profile()
+    public function store(Request $request)
     {
-        return response()->json(['user' => Auth::user()], 201);
+        $data = $request->all();
+
+        $this->user->create($data);
+        return "behasil";
     }
-
-    /**
-     * Get all User.
-     *
-     * @return Response
-     */
-    public function allUsers()
-    {
-         return response()->json(['users' =>  User::all()], 200);
-    }
-
-    /**
-     * Get one user.
-     *
-     * @return Response
-     */
-    public function singleUser($id)
-    {
-        try {
-            $user = User::findOrFail($id);
-
-            return response()->json(['user' => $user], 200);
-
-        } catch (\Exception $e) {
-
-            return response()->json(['message' => 'user not found!'], 404);
-        }
-
-    }
-
 }
