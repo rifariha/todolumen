@@ -18,7 +18,7 @@ class UserController extends Controller
     public function __construct(
         Users $user
     )
-    {
+    { 
         $this->user = $user;
     }
 
