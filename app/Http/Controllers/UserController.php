@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use App\User;
-use App\Repositories\User\UserInterface as UserInterface;
+use App\Repositories\user\UserRepository;
 
 class UserController extends Controller
 {
@@ -14,7 +14,7 @@ class UserController extends Controller
      * @return void
      */
 
-    public function __construct(UserInterface $user)
+    public function __construct(UserRepository $user)
     {
         $this->user = $user;
     }

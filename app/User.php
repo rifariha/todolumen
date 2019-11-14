@@ -34,23 +34,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'password',
     ];
 
-    public function getAll()
-    {
-        return static::all();
-    }
-
-
-    public function findUser($id)
-    {
-        return static::find($id);
-    }
-
-
-    public function deleteUser($id)
-    {
-        return static::find($id)->delete();
-    }
-
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
      *
