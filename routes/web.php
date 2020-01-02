@@ -20,6 +20,9 @@ $router->get('/userRepo', 'UserController@userRepo');
 $router->post('/PostUser', 'UserController@store');
 
 
+$router->post('uploadImage', 'ImageController@upload');
+
+    
 
 // API route group
 $router->group(['middleware' => 'auth', 'prefix' => 'api'], function () use ($router) {
@@ -46,7 +49,4 @@ $router->group(['middleware' => 'auth', 'prefix' => 'api'], function () use ($ro
     // Matches "/api/users
     $router->get('users', 'UserController@allUsers');
 
-    $router->post('uploadImage', 'ImageController@upload');
-
-    
  });

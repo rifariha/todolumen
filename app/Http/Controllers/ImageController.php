@@ -6,56 +6,46 @@ use GuzzleHttp\Client;
 
 class ImageController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
     
     public function upload(Req $request)
     {
-        $files = $request->image;
-
-        $allres = [];
-        foreach($files as $file)
-        {
-            $token = 'base64:XDJU8/+BkmZlThNErrL4mP/31jXmOWygdAEs/yfz/SQ';
-            $image_org= $file->getClientOriginalName();
-            $image_path = $file->getRealPath();
-
+            $files = $request->image;
+            // echojson_encode($files));
+            $token = 'd747920dc228e53775dedfa6dcdd671d180feb784547289aae4927e80d5d6d31';
             $client   = new Client();
-            $response = $client->request('POST', 'http://localhost:909/api/saveImage', [
-                'multipart' => [
-                    [
-                        'name' => 'token',
-                        'contents' => $token,
-                    ],[
-                        'name'     => 'image',
-                        'filename' => $image_org,
-                        'contents' => fopen($image_path, 'r'),
-                    ],[
-                        'name' => 'id',
-                        'contents' => '3',
-                    ],[
-                        'name' => 'path',
-                        'contents' => 'product'
-                    ],
-                ]
+            $dataImages = [
+                [
+                    'name' => 'token',
+                    'contents' => $token,
+                ],[
+                    'name' => 'id',
+                    'contents' => 1,
+                ],[
+                    'name' => 'path',
+                    'contents' => 'product',
+                ],[
+                    'name' => 'table_name',
+                    'contents' => 'marketplace_product_images',
+                ],
+            ];
+            foreach ($files as $key => $value) {
+                $image = [
+                    'name'     => 'image['.$key.']',
+                    'contents' => fopen($files[$key], 'r'),
+                ];
+                array_push($dataImages, $image);
+            }
+            $response = $client->request('POST', 'http://localhost:8000/api/saveImage', [
+                'multipart' => $dataImages
             ]);
             
-            array_push($allres,$response->getBody()->getContents());
-        }
+            return $response->getBody()->getContents();
         
-        foreach($allres as $ar)
-        {
-            if(!in_array('200 ', $ar))
-            {
-                return "Success";
-            }
-            else
-            {
-                return "Upload Failed, Please Try Again";
-            }
-        }
+        
         
     }
 }
